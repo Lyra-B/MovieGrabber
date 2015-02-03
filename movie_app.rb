@@ -26,8 +26,7 @@ post '/film' do
 	else
 		#binding.pry
 		film = params[:name]
-		Movie.get_film_info(film)
-		#[200, {}, get_film_info(film)]
+		[200, {}, [Movie.get_film_info(film)]]
 		#get '/film'
 		#film = Movie.get_film_info(params[:name])
 		#binding.pry
