@@ -12,7 +12,6 @@ class Movie < ActiveRecord::Base
     m.year = movie_info["Year"]
     m.save
     # m.reload
-
     # Fill in the attributes...
 
     # Store me in a database...

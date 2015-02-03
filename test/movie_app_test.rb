@@ -1,4 +1,5 @@
 require_relative './helper'
+require 'active_record'
 
 class MovieAppTest < MiniTest::Test
   def test_welcome_page

@@ -9,8 +9,11 @@ require 'database_cleaner'
 
 require_relative '../movie'
 require_relative '../movie_app'
+# require_relative '../test/movie_app_test'
+# require_relative '../test/movie_test.rb'
 
 class MiniTest::Test
+  #include active_record
   include Rack::Test::Methods
 
   def app
