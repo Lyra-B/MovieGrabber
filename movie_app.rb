@@ -27,6 +27,7 @@ post '/film' do
 		#binding.pry
 		film = params[:name]
 		[200, {}, [Movie.get_film_info(film)]]
+		film.save
 		#get '/film'
 		#film = Movie.get_film_info(params[:name])
 		#binding.pry
