@@ -2,9 +2,19 @@ require 'sinatra'
 require 'sqlite3'
 require 'pry'
 require 'httparty'
+require 'active_record'
 require_relative 'movie'
 #require_relative './helper'
 #require_relative 'active_record'
+
+configure do
+  db_config = YAML.load_file('db/config.yml')["development"]
+
+  ActiveRecord::Base.establish_connection(
+    :adapter => db_config["adapter"],
+    :database => db_config["database"]
+  )
+end
 
 get '/' do
   erb :homepage
@@ -16,6 +26,7 @@ post '/film' do
 	else
 		#binding.pry
 		film = params[:name]
+		Movie.get_film_info(film)
 		#[200, {}, get_film_info(film)]
 		#get '/film'
 		#film = Movie.get_film_info(params[:name])
