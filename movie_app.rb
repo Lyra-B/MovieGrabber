@@ -21,20 +21,37 @@ get '/' do
 end
 
 post '/film' do
-	if params[:name] == ""
+  if params[:name] == ""
 		redirect '/'
 	else
 		#binding.pry
 		film = params[:name]
 		[200, {}, [Movie.get_film_info(film)]]
-		film.save
-		#get '/film'
-		#film = Movie.get_film_info(params[:name])
-		#binding.pry
   end
+end
+
+get '/:name' do
+	# if Movie.find_by_title(:name)==nil
+	# 	[404, {}, "Page not found!"]
+	# else
+		erb :film
+	# end
+end
+
+
+get '/new' do
+
+end
+
+post '/create' do
+	film = params[:name]
+	[200, {}, [Movie.get_film_info(film)]]
+end
+
+# post ''
   # Search for a Movie
   # HINT - what is in params ?
-  
+
   #binding.pry
 
   # Lookup the film information on the web
@@ -43,4 +60,4 @@ post '/film' do
   # store the film in the database
 
   # Display the movie in the page
-end
+
